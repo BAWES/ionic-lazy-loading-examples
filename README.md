@@ -1,8 +1,8 @@
 # This app covers the following examples:
 
-## Pages that aren't lazy loaded
+## Page that isn't lazy loaded
 
-* HomePage
+The `HomePage` is not lazy loaded because it's `HomePageModule` imported in `app.module.ts`
 
 ## Pages that are lazy loaded individually
 
