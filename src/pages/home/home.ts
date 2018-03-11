@@ -27,6 +27,7 @@ export class HomePage {
    * 2) Lazy load a collection of pages
    * 3) Ability to select which pages to NOT lazy-load on app start
    * 4) Experiment with deeplinking methods
+   * 5) The ionic app in link, is using "Entrycomponents" in module definition for lazy loading, but it does work without that. Do we really need it?
    */
 
 }
