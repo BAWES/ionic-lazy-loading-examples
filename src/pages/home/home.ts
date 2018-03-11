@@ -14,7 +14,7 @@ export class HomePage {
   }
 
   lazyLoadEducationPage(){
-      this.navCtrl.push("EducationPage");
+    this.navCtrl.push("EducationPage");
   }
 
   lazyLoadEducationListPage(){
