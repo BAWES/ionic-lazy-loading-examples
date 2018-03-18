@@ -1,5 +1,7 @@
 # Lazy Loading Example w/ Ionic 3
 
+Install the app for a demo on how it works
+
 ## How lazy loading is implemented
 
 Every page we add needs to have a `@IonicPage()` decorator added to the top of the page class along with a corresponding `module` class file / `NgModule` in the same folder.
