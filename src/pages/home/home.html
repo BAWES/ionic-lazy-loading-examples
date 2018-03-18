@@ -1,12 +1,42 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Lazy Loading Examples
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button ion-button full (click)="lazyLoadEducationPage()">Lazy load Education Detail Page</button>
-  <button ion-button full (click)="lazyLoadEducationListPage()">Lazy load Education List Page</button>
+<ion-content >
+  <h3 padding style='background: darkred; color:white; text-align: center;'>
+    Open your Chrome Dev tools on "Network" panel to test the implementation
+  </h3>
+
+  <ion-card>
+    <ion-card-content>This HomePage will be eager loaded / not lazy as it has been imported into <pre>app.module.ts</pre>
+    If we remove the import from the app module, this page will be lazy loaded first as per it's defined priority of "high"
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card padding>
+    <ion-card-title>Education Detail Page (Lazy-loaded without pre-loading / priority "off")</ion-card-title>
+    <ion-card-content>
+      <h2>Will be Lazy-loaded on click as Priority is off</h2>
+      <button ion-button full (click)="lazyLoadEducationPage()">Open</button>
+    </ion-card-content>
+  </ion-card>
+
+   
+  
+  <ion-card padding>
+    <ion-card-title>Education List Page (Lazy-loaded but pre-loaded)</ion-card-title>
+    <ion-card-content>
+      <h2>Expected result:</h2>
+      <ul>
+        <li>Will send web request on app load based on its priority (low)</li>
+        <li>Won't send web request on click / opening of the page for the first time</li>
+      </ul>
+      <button ion-button full (click)="lazyLoadEducationListPage()">Open</button>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
