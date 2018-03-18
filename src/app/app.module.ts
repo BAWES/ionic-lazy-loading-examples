@@ -14,7 +14,9 @@ import { HomePageModule } from '../pages/home/home.module';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      preloadModules: false // enable pre-loading of modules
+    }),
     HomePageModule //not lazy loaded
   ],
   bootstrap: [IonicApp],

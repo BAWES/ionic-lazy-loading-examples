@@ -25,6 +25,39 @@ We can now navigate to that page using `this.navCtrl.push('my-page');`
 
 ## Pre-loading and priorities
 
+By default, preloading is turned off so setting this property would do nothing. Preloading eagerly loads all deep links after the application boots instead of on demand as needed. To enable preloading, set preloadModules in the main application module config to true:
+
+```
+@NgModule({
+  declarations: [
+    MyApp
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(MyApp, {
+      preloadModules: true
+    })
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp
+  ]
+})
+export class AppModule { }
+```
+
+If preloading is turned on, it will load the modules based on the value of `priority`. The following values are possible for `priority`: `"high"`, `"low"`, and `"off"`. When there is no `priority`, it will be set to `"low"`.
+
+All deep links with their priority set to `"high"` will be loaded first. Upon completion of loading the `"high"` priority modules, all deep links with a priority of `"low"` (or no priority) will be loaded. If the priority is set to "off" the link will not be preloaded. Setting the priority is as simple as passing it to the `@IonicPage` decorator:
+
+```
+@IonicPage({
+  name: 'my-page',
+  priority: 'high'
+})
+```
+
+
 ## Attempt at eager loading a page (not lazy loaded)
 
 The `HomePage` is not lazy loaded because it's `HomePageModule` imported in `app.module.ts`
